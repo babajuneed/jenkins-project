@@ -20,9 +20,12 @@ pipeline {
                 }
                 stage('Test') {
                     steps {
-                        sh "pytest"
-                        sh "whoami"
-                    }
+                         sh '''
+                         #!/bin/bash
+                         . myenv/bin/activate
+                         python -m pytest
+                        '''
+                        }
                 }
                 
                 }

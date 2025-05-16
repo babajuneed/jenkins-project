@@ -28,7 +28,7 @@ pipeline {
                          #!/bin/bash
                          . myenv/bin/activate
                          python -m pytest
-                         echo ${USER_NAME}
+                         echo ${BUILD_NAME}
                         '''
                         }
                 }

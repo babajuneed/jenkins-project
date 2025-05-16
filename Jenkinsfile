@@ -24,6 +24,7 @@ pipeline {
                          #!/bin/bash
                          . myenv/bin/activate
                          python -m pytest
+                         echp "pytest complete"
                         '''
                         }
                 }

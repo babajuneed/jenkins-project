@@ -1,5 +1,8 @@
 pipeline {
         agent any
+        environment {
+            USER_NAME = 'Juneed'
+        }
         stages {
 
                 /*stage('Checkout') {
@@ -15,6 +18,7 @@ pipeline {
                         python3 -m venv myenv
                         . myenv/bin/activate
                           pip install -r requirements.txt
+                          echo ${USER_NAME}
                      '''
                     } 
                 }
@@ -24,7 +28,7 @@ pipeline {
                          #!/bin/bash
                          . myenv/bin/activate
                          python -m pytest
-                         echo "pytest complete"
+                         echo ${USER_NAME}
                         '''
                         }
                 }

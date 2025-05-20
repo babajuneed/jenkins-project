@@ -26,7 +26,7 @@ pipeline {
                 sh """
                 sudo apt-get install -y zip
                 zip -r myapp.zip ./* -x '*.git*'
-                ls -lar
+                ls -lart
                 """
             }
         }

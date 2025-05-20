@@ -6,7 +6,11 @@ pipeline {
     stages {
         stage('Setup') {
             steps {
-                sh "pip install -r requirements.txt"
+                sh """
+                python3 -m venv venv
+                . venv/bin/activate
+                pip install -r requirements.txt
+                """
             }
         }
         stage('Test') {
@@ -29,8 +33,8 @@ pipeline {
                         ssh -i $MY_SSH_KEY -o StrictHostKeyChecking=no ${username}@${SERVER_IP} << EOF
                             unzip -o /home/ubuntu/myapp.zip -d /home/ubuntu/app/
                             source app/venv/bin/activate
-                            pip install -r requirements.txt
                             cd /home/ubuntu/app/
+                            pip install -r requirements.txt
                             sudo systemctl restart flaskapp.service
                         EOF
                     """

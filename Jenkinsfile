@@ -24,8 +24,7 @@ pipeline {
         stage('Package code') {
             steps {
                 sh """
-                echo "redhat" | sudo -S apt-get update
-                echo "redhat" | sudo -S apt-get install -y zip
+                sudo apt-get install -y zip
                 zip -r myapp.zip ./* -x '*.git*'
                 ls -lar
                 """

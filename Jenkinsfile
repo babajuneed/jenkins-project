@@ -15,7 +15,10 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh "pytest"
+                sh """
+                export PATH=\$PATH:./venv/bin
+                pytest
+                """
             }
         }
         stage('Package code') {

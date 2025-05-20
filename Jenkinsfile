@@ -29,8 +29,8 @@ pipeline {
                         ssh -i $MY_SSH_KEY -o StrictHostKeyChecking=no ${username}@${SERVER_IP} << EOF
                             unzip -o /home/ubuntu/myapp.zip -d /home/ubuntu/app/
                             source app/venv/bin/activate
-                            cd /home/ubuntu/app/
                             pip install -r requirements.txt
+                            cd /home/ubuntu/app/
                             sudo systemctl restart flaskapp.service
                         EOF
                     """

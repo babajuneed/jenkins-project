@@ -30,10 +30,10 @@ pipeline {
         stage('Package code') {
             steps {
                 sh """
-                apt-get install -y zip
+                apt-get update || true
+                apt-get install -y zip || true
                 zip -r myapp.zip ./* -x '*.git*'
-                ls -lar
-                """
+            """
             }
         }
         stage('Deploy to Prod') {

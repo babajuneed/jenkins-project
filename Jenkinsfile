@@ -28,13 +28,13 @@ pipeline {
             }
         }
         stage('Package code') {
-            steps {
-                sh """
-                apt-get update || true
-                apt-get install -y zip || true
-                zip -r myapp.zip ./* -x '*.git*'
-            """
-            }
+         steps {
+              sh """
+              sudo apt-get update
+              sudo apt-get install -y zip
+             zip -r myapp.zip ./* -x '*.git*'
+             """
+         }
         }
         stage('Deploy to Prod') {
             steps {

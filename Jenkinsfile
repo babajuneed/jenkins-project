@@ -23,8 +23,11 @@ pipeline {
         }
         stage('Package code') {
             steps {
-                sh "zip -r myapp.zip ./* -x '*.git*'"
-                sh "ls -lar"
+                sh """
+                sudo apt-get install -y zip
+                zip -r myapp.zip ./* -x '*.git*'
+                ls -lar
+                """
             }
         }
         stage('Deploy to Prod') {

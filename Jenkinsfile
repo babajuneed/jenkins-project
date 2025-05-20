@@ -32,6 +32,7 @@ pipeline {
                             cd /home/ubuntu/app/
                             pip install -r requirements.txt
                             sudo systemctl restart flaskapp.service
+                            ls
                         EOF
                     """
                 }

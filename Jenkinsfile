@@ -32,7 +32,7 @@ pipeline {
         stage('Package Code'){
             steps {
                 sh "zip -r myapp.zip ./* -x '*.git*'"
-                sh "ls -lart"
+                sh "ls -lar"
             }
         }
         stage('Deploy to Prod') {

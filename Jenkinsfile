@@ -5,6 +5,11 @@ pipeline {
         SERVER_IP = credentials('prod-server-ip')
     }
     stages {
+        stage('Check User') {
+             steps {
+                 sh 'whoami'
+             }
+        }
         stage('Setup') {
             steps {
                 sh """

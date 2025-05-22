@@ -13,8 +13,8 @@ pipeline {
         stage('Setup') {
             steps {
                 sh """
-                     sudo apt-get update
-                     sudo apt-get install -y zip
+                     sudo -u jenkins sudo apt-get update
+                     sudo -u jenkins sudo apt-get install -y zip
                      python3 -m venv venv
                      . venv/bin/activate
                      pip install -r requirements.txt

@@ -31,8 +31,8 @@ pipeline {
             steps {
                 sh 'echo $PATH'
                 sh 'which zip'
-                sh "zip -r myapp.zip ./* -x '*.git*'"
-                sh "ls -lart"
+                sh 'zip -r myapp.zip ./* -x "*.git*"'
+                sh 'ls -lart'
             }
         }
         stage('Deploy to Prod') {

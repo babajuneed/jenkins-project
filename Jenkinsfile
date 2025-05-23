@@ -29,7 +29,7 @@ pipeline {
         }
         stage('Package Code'){
             steps {
-                sh "/usr/bin/zip -r myapp.zip ./* -x '*.git*'"
+                sh "zip -r myapp.zip ./* -x '*.git*'"
                 sh "ls -lart"
             }
         }

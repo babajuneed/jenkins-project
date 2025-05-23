@@ -27,12 +27,12 @@ pipeline {
                  """
             }
         }
-        stage('Package Code'){
+       /* stage('Package Code'){
             steps {
                 sh 'zip -r myapp.zip ./* -x "*.git*"'
                 sh 'ls -lart'
             }
-        }
+        }*/
         stage('Deploy to Prod') {
             steps {
                 withCredentials([sshUserPrivateKey(credentialsId: 'ssh-key', keyFileVariable: 'MY_SSH_KEY', usernameVariable: 'username')]) {

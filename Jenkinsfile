@@ -29,6 +29,8 @@ pipeline {
         }
         stage('Package Code'){
             steps {
+                sh 'echo $PATH'
+                sh 'which zip'
                 sh "zip -r myapp.zip ./* -x '*.git*'"
                 sh "ls -lart"
             }
